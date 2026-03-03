@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 export const EditAthleteForm = props => {
-  const [ athlete, setAthlete ] = useState(props.currentAthlete)
+  const [athlete, setAthlete] = useState(props.currentAthlete)
 
   useEffect(
     () => {
@@ -27,10 +27,7 @@ export const EditAthleteForm = props => {
       <input type="text" name="name" value={athlete.name} onChange={handleInputChange} />
       <label>Position</label>
       <input type="text" name="position" value={athlete.position} onChange={handleInputChange} />
-      <button>Update athlete</button>
-      <button onClick={() => props.setEditing(false)} className="button muted-button">
-        Cancel
-      </button>
+      <button type="submit">Submit</button>
     </form>
   )
 }

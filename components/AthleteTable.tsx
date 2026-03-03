@@ -14,14 +14,20 @@ export const AthleteTable = props => (
             <td>{athlete.name}</td>
             <td>{athlete.position}</td>
             <td>
-              <button
-                onClick={() => {
-                  props.editRow(athlete)
-                }}
-                className="button muted-button"
-              >
-                Edit
-              </button>
+              {props.isEditing && props.currentAthlete.id === athlete.id ?
+                <button onClick={() => props.setEditing(false)} className="button muted-button">
+                  Cancel
+                </button>
+                :
+                <button
+                  onClick={() => {
+                    props.editRow(athlete)
+                  }}
+                  className="button muted-button"
+                >
+                  Edit
+                </button>
+              }
               <button
                 className="button muted-button"
               >

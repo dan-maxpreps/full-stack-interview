@@ -2,8 +2,8 @@ import { DEFAULT_FORM_DATA } from '@/app/page';
 import { useState } from 'react'
 
 export const AddAthleteForm = props => {
-	const [ athlete, setAthlete ] = useState(DEFAULT_FORM_DATA);
-	const [ isButtonHidden, setIsButtonHidden] = useState(false);
+	const [athlete, setAthlete] = useState(DEFAULT_FORM_DATA);
+	const [isButtonHidden, setIsButtonHidden] = useState(false);
 
 	const handleInputChange = event => {
 		const { name, value } = event.target;
