@@ -8,20 +8,20 @@ Total interview time: **30 minutes** for completing **both sections**.
 
 Clone this repository and launch the app. Ensure it meets all of these requirements.
 
-- The app builds and starts.
-- No errors in the console.
-- The form should reset after adding an athlete.
-- Clicking the Delete button should remove the athlete from the list.
-- Clicking on the Edit button should update the form data, even if another athlete is already loaded in the edit form.
-- You should be able to edit the name and position of an athlete.
-- When adding an athlete, if the position is `center`, the add button should be hidden.
-- There should be 2 columns, one with the Add/Edit Athlete form and the other with View Athletes table. The columns should stack on smaller devices.
+1. The app builds and starts.
+2. No errors in the console.
+3. The form should reset after adding an athlete.
+4. Clicking the Delete button should remove the athlete from the list.
+5. Clicking on the Edit button should update the form data, even if another athlete is already loaded in the edit form.
+6. You should be able to edit the name and position of an athlete.
+7. When adding an athlete, if the position is `center`, the add button should be hidden.
+8. There should be 2 columns, one with the Add/Edit Athlete form and the other with View Athletes table. The columns should stack on smaller devices.
 
 When **section 1** is complete, the app should look like this:
 
 | Mobile | Desktop |
 |--------|---------|
-| <img width="250" alt="mobile" src="https://user-images.githubusercontent.com/49081448/69361282-0258c100-0c41-11ea-8d94-7568ec736431.png" style="width: 100%; max-width: 250px"> | <img width="400" alt="desktop" src="https://user-images.githubusercontent.com/49081448/69361281-01279400-0c41-11ea-8e98-35d37ec3380e.png" style="width: 100%; max-width: 400px;"> |
+| <img width="250" alt="mobile" src="public/mobile.png" style="width: 100%; max-width: 250px"> | <img width="400" alt="desktop" src="public/desktop.png" style="width: 100%; max-width: 400px;"> |
 
 ## Section 2: AI-Assistance Allowed
 
@@ -47,12 +47,15 @@ While working through this section, be sure to communicate:
    - `name` and `position` are required
    - return appropriate HTTP status codes (`200/201/400/404`)
 5. Wire the frontend to these endpoints so that load, add, edit, and delete all go through the API.
-6. Add a search input that filters athletes by name.
-7. Show `No athletes match your filters` when filtered results are empty.
-8. Add a `Clear filters` action that resets search/filter to defaults.
+
 
 ### Stretch goals (only if time remains)
 
-- Add a `position` filter dropdown with `All` plus each unique position.
-- Add sortable columns (ascending/descending) for name and position.
-- Improve error UX (inline error messaging for failed API requests).
+1. Add a search input that filters athletes by name.
+2. Show `No athletes match your filters` when filtered results are empty.
+3. Add a `Clear filters` action that resets search/filter to defaults.
+4. Add a `position` filter dropdown with `All` plus each unique position.
+5. Add sortable columns (ascending/descending) for name and position.
+6. Improve error UX (inline error messaging for failed API requests).
+
+<img width="250" alt="mobile" src="public/section-2.png" style="width: 100%; max-width: 250px">
