@@ -26,9 +26,4 @@ When **section 1** is complete, the app should look like this:
 In this section, you may use whatever AI tools you want with no token limit. External libraries are not allowed.
 
 - Instead of using hard-coded data, fetch the data from this endpoint
-    - `https://04686f0d-d5ad-4e3b-85e2-d51457898a5b.mock.pstmn.io/test/athletes/`
-- Add a search input that filters by name
-- Add a `position` dropdown with options for 'All' and each unique position in the table
-- Add the ability to sort each table column ascending and descending
-- Show 'No athletes match your filters' when filtered results are empty.
-- Add a 'Clear filters' action that resets search/filter/sort to defaults.
+    - `http://localhost:3000/api/test/athletes/`
