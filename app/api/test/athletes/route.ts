@@ -1,14 +1,25 @@
 import { NextResponse } from "next/server";
-import type { Athlete } from "@/types/athlete";
-
-const ATHLETES: Athlete[] = [
-  { id: 1, name: "Dan", position: "Quarterback" },
-  { id: 2, name: "Ken", position: "Running Back" },
-  { id: 3, name: "Ryan", position: "Tight End" },
-  { id: 4, name: "Nick", position: "Running Back" },
-  { id: 5, name: "Sam", position: "Safety" },
-];
+import { createAthlete, listAthletes, validateAthleteForm } from "./store";
 
 export async function GET() {
-  return NextResponse.json(ATHLETES);
+  return NextResponse.json(listAthletes(), { status: 200 });
+}
+
+export async function POST(request: Request) {
+  let body: unknown;
+
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
+  }
+
+  const { data, error } = validateAthleteForm(body);
+  if (!data) {
+    return NextResponse.json({ error }, { status: 400 });
+  }
+
+  const athlete = createAthlete(data);
+
+  return NextResponse.json(athlete, { status: 201 });
 }

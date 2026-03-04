@@ -110,6 +110,23 @@ input[type="text"]:focus {
   box-shadow: 0 0 0 4px var(--focus);
 }
 
+select {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 12px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--focus);
+}
+
 button,
 .button {
   display: inline-flex;
@@ -183,6 +200,46 @@ table {
   background: #fff;
 }
 
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.actions button,
+.actions .button {
+  margin-right: 0;
+}
+
+.filters {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.filters > div {
+  display: grid;
+  gap: 4px;
+}
+
+.filters button {
+  margin-top: 0;
+}
+
+.error-message {
+  margin: 12px 0 0;
+  border: 1px solid #f1b8be;
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: #7f1f29;
+  background: #fff1f3;
+}
+
 thead tr {
   background: #e7f0fd;
 }
@@ -226,4 +283,28 @@ span {
   top: 14px;
   left: 14px;
   width: 128px;
+}
+
+@media (max-width: 860px) {
+  .container {
+    padding: 24px 14px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .roster {
+    grid-template-columns: 1fr;
+  }
+
+  th,
+  td {
+    white-space: normal;
+  }
+
+  .logo {
+    position: static;
+    margin-bottom: 12px;
+  }
 }
