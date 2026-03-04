@@ -1,4 +1,14 @@
-export const AthleteTable = props => (
+import type { Athlete } from "@/types/athlete";
+import type { Dispatch, SetStateAction } from 'react'
+
+type AthleteTableProps = {
+  athletes: Athlete[];
+  currentAthlete: Athlete | undefined;
+  setCurrentAthlete: Dispatch<SetStateAction<Athlete | undefined>>
+  setAthletes: Dispatch<SetStateAction<Athlete[]>>
+};
+
+export const AthleteTable = ({ athletes, currentAthlete, setCurrentAthlete }: AthleteTableProps) => (
   <table>
     <thead>
       <tr>
@@ -8,21 +18,19 @@ export const AthleteTable = props => (
       </tr>
     </thead>
     <tbody>
-      {props.athletes.length > 0 ? (
-        props.athletes.map(athlete => (
-          <tr key={athlete.position}>
+      {athletes.length > 0 ? (
+        athletes.map(athlete => (
+          <tr key={athlete.id}>
             <td>{athlete.name}</td>
             <td>{athlete.position}</td>
             <td>
-              {props.isEditing && props.currentAthlete.id === athlete.id ?
-                <button onClick={() => props.setEditing(false)} className="button muted-button">
+              {currentAthlete && currentAthlete.id === athlete.id ?
+                <button onClick={() => setCurrentAthlete(undefined)} className="button muted-button">
                   Cancel
                 </button>
                 :
                 <button
-                  onClick={() => {
-                    props.editRow(athlete)
-                  }}
+                  onClick={() => setCurrentAthlete(athlete)}
                   className="button muted-button"
                 >
                   Edit

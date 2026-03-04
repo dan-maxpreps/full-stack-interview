@@ -1,36 +1,36 @@
-import { DEFAULT_FORM_DATA } from '@/app/page';
-import { useState } from 'react'
+import { useState, type ChangeEvent, type FormEvent } from 'react'
+import type { Athlete, AthleteForm } from '@/types/athlete';
 
-export const AddAthleteForm = props => {
-	const [athlete, setAthlete] = useState(DEFAULT_FORM_DATA);
-	const [isButtonHidden, setIsButtonHidden] = useState(false);
+type AddAthleteFormProps = {
+	addAthlete: (athlete: AthleteForm) => void;
+};
 
-	const handleInputChange = event => {
+const DEFAULT_FORM_DATA: AthleteForm = { name: '', position: '' };
+
+export const AddAthleteForm = ({ addAthlete }: AddAthleteFormProps) => {
+	const [formData, setFormData] = useState<AthleteForm>(DEFAULT_FORM_DATA);
+
+	const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target;
+		const nextAthlete = { ...formData, [name]: value } as Athlete;
 
-		setAthlete({ ...athlete, [name]: value });
-		if (athlete.position.toLowerCase() === 'center') {
-			setIsButtonHidden(true);
-		} else {
-			setIsButtonHidden(false);
-		}
+		setFormData(nextAthlete);
 	}
 
-	return (
-		<form
-			onSubmit={event => {
-				event.preventDefault()
-				if (!athlete.name || !athlete.position) return;
+	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		if (!formData.name || !formData.position) return;
 
-				props.addAthlete(athlete);
-			}}
-		>
+		addAthlete(formData);
+	};
+
+	return (
+		<form onSubmit={handleSubmit}>
 			<label>Name</label>
-			<input type="text" name="name" value={athlete.name} onChange={handleInputChange} />
+			<input type="text" name="name" value={formData.name} onChange={handleInputChange} />
 			<label>Position</label>
-			<input type="text" name="position" value={athlete.position} onChange={handleInputChange} />
-			<button hidden={isButtonHidden}>Add new athlete</button>
+			<input type="text" name="position" value={formData.position} onChange={handleInputChange} />
+			<button>Add new athlete</button>
 		</form>
 	)
 }
-

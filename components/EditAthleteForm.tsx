@@ -1,34 +1,37 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, type ChangeEvent, type FormEvent, type Dispatch, type SetStateAction } from 'react'
+import type { Athlete } from '@/types/athlete';
 
-export const EditAthleteForm = props => {
-  const [athlete, setAthlete] = useState(props.currentAthlete)
+type EditAthleteFormProps = {
+  currentAthlete: Athlete;
+  setAthletes: Dispatch<SetStateAction<Athlete[]>>
+}
 
-  useEffect(
-    () => {
-      setAthlete(props.currentAthlete)
-    },
-    []
-  )
+export const EditAthleteForm = ({ currentAthlete, setAthletes }: EditAthleteFormProps) => {
+  const [formData, setFormData] = useState<Athlete>(currentAthlete)
 
-  const handleInputChange = event => {
+  useEffect(() => {
+    setFormData(currentAthlete)
+  }, [])
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
 
-    athlete[name] = value;
+    setFormData(prevAthlete => ({ ...prevAthlete, [name]: value }))
+  }
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    
+    setAthletes(prevList => [...prevList, formData])
   }
 
   return (
-    <form
-      onSubmit={event => {
-        event.preventDefault()
-        props.updateAthlete(athlete.id, athlete)
-      }}
-    >
+    <form onSubmit={handleSubmit}>
       <label>Name</label>
-      <input type="text" name="name" value={athlete.name} onChange={handleInputChange} />
+      <input type="text" name="name" value={formData.name} onChange={handleInputChange} />
       <label>Position</label>
-      <input type="text" name="position" value={athlete.position} onChange={handleInputChange} />
+      <input type="text" name="position" value={formData.position} onChange={handleInputChange} />
       <button type="submit">Submit</button>
     </form>
   )
 }
-

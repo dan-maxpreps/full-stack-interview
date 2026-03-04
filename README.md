@@ -1,33 +1,34 @@
-# Minimal Next.js App Router + TypeScript Starter
+# MaxPreps React Interview
 
-This is a minimal Next.js project using the App Router and TypeScript, with plain CSS (no UI/CSS framework).
+This React app has a number of bugs and does not meet all of the requirements below. This interview will assess your ability to debug code and create features, both with and without AI assistance.
 
-## Getting Started
+## Section 1: No AI-Assistance
 
-1. Install dependencies:
+Clone this repository and launch the app. Ensure it meets all of these requirements.
 
-```bash
-npm install
-```
+- The app builds and starts.
+- No errors in the console.
+- The form should reset after adding an athlete.
+- Clicking the Delete button should remove the athlete from the list.
+- Clicking on the Edit button should update the form data, even if another athlete is already loaded in the edit form.
+- You should be able to edit the name and position of an athlete.
+- When adding an athlete, if the position is `center`, the add button should be hidden.
+- There should be 2 columns, one with the Add/Edit Athlete form and the other with View Athletes table. The columns should stack on smaller devices.
 
-2. Run the development server:
+When **section 1** is complete, the app should look like this:
 
-```bash
-npm run dev
-```
+| Mobile | Desktop |
+|--------|---------|
+| <img width="250" alt="mobile" src="https://user-images.githubusercontent.com/49081448/69361282-0258c100-0c41-11ea-8d94-7568ec736431.png" style="width: 100%; max-width: 250px"> | <img width="400" alt="desktop" src="https://user-images.githubusercontent.com/49081448/69361281-01279400-0c41-11ea-8e98-35d37ec3380e.png" style="width: 100%; max-width: 400px;"> |
 
-3. Open http://localhost:3000 in your browser.
+## Section 2: AI-Assistance Allowed
 
-## Project Structure
+In this section, you may use whatever AI tools you want with no token limit. External libraries are not allowed.
 
-- `app/layout.tsx`: Root layout and page metadata
-- `app/page.tsx`: Splash/home page
-- `app/globals.css`: Global styles
-- `next.config.ts`: Next.js config
-- `tsconfig.json`: TypeScript config
-
-## Scripts
-
-- `npm run dev`: Start local dev server
-- `npm run build`: Build for production
-- `npm run start`: Start production server
+- Instead of using hard-coded data, fetch the data from this endpoint
+    - `https://04686f0d-d5ad-4e3b-85e2-d51457898a5b.mock.pstmn.io/test/athletes/`
+- Add a search input that filters by name
+- Add a `position` dropdown with options for 'All' and each unique position in the table
+- Add the ability to sort each table column ascending and descending
+- Show 'No athletes match your filters' when filtered results are empty.
+- Add a 'Clear filters' action that resets search/filter/sort to defaults.
