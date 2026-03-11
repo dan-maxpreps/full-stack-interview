@@ -48,10 +48,10 @@ export default function HomePage() {
                 />
               </>
             ) : (
-              <>
+              
                 <h2>Add Athlete</h2>
                 <AddAthleteForm addAthlete={addAthlete} />
-              </>
+              
             )}
           </div>
           <div>

@@ -34,7 +34,7 @@ While working through this section, be sure to communicate:
 3. Any AI-generated suggestions you correct or reject
 4. Your thought process to verify results
 
-### Core requirements (scoped for remaining interview time)
+### Additional Requirements for Full-Stack Interview
 
 1. Replace hard-coded client data with this native Next.js API:
    - `GET /api/test/athletes`
@@ -49,7 +49,7 @@ While working through this section, be sure to communicate:
 5. Wire the frontend to these endpoints so that load, add, edit, and delete all go through the API.
 
 
-### Stretch goals (only if time remains)
+### Additional Requirements for Design Engineer Interview
 
 1. Add a search input that filters athletes by name.
 2. Show `No athletes match your filters` when filtered results are empty.
