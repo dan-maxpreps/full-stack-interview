@@ -21,8 +21,12 @@ export const EditAthleteForm = ({ currentAthlete, setAthletes }: EditAthleteForm
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    
-    setAthletes(prevList => [...prevList, formData])
+
+    setAthletes(prevList =>
+      prevList.map(athlete =>
+        athlete.id === formData.id ? formData : athlete
+      )
+    )
   }
 
   return (
