@@ -22,6 +22,7 @@ export const AddAthleteForm = ({ addAthlete }: AddAthleteFormProps) => {
 		if (!formData.name || !formData.position) return;
 
 		addAthlete(formData);
+		setFormData(DEFAULT_FORM_DATA);
 	};
 
 	return (
