@@ -20,7 +20,7 @@ export const AthleteTable = ({ athletes, currentAthlete, setCurrentAthlete }: At
     <tbody>
       {athletes.length > 0 ? (
         athletes.map(athlete => (
-          <tr key={athlete.position}>
+          <tr key={athlete.id}>
             <td>{athlete.name}</td>
             <td>{athlete.position}</td>
             <td>
