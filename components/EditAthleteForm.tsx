@@ -11,7 +11,7 @@ export const EditAthleteForm = ({ currentAthlete, setAthletes }: EditAthleteForm
 
   useEffect(() => {
     setFormData(currentAthlete)
-  }, [])
+  }, [currentAthlete]) // can also be solved with a key prop
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
