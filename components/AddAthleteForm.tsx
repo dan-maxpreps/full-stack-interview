@@ -31,7 +31,7 @@ export const AddAthleteForm = ({ addAthlete }: AddAthleteFormProps) => {
 			<input type="text" name="name" value={formData.name} onChange={handleInputChange} />
 			<label>Position</label>
 			<input type="text" name="position" value={formData.position} onChange={handleInputChange} />
-			<button>Add new athlete</button>
+			{formData.position !== 'center' && <button>Add new athlete</button> /* Can also be solved with CSS */}
 		</form>
 	)
 }
