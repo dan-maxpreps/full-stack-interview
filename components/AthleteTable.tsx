@@ -4,11 +4,12 @@ import type { Dispatch, SetStateAction } from 'react'
 type AthleteTableProps = {
   athletes: Athlete[];
   currentAthlete: Athlete | undefined;
-  setCurrentAthlete: Dispatch<SetStateAction<Athlete | undefined>>
-  setAthletes: Dispatch<SetStateAction<Athlete[]>>
+  setCurrentAthlete: Dispatch<SetStateAction<Athlete | undefined>>;
+  setAthletes: Dispatch<SetStateAction<Athlete[]>>;
+  deleteAthlete: (athlete: Athlete) => void;
 };
 
-export const AthleteTable = ({ athletes, currentAthlete, setCurrentAthlete }: AthleteTableProps) => (
+export const AthleteTable = ({ athletes, currentAthlete, setCurrentAthlete, deleteAthlete }: AthleteTableProps) => (
   <table>
     <thead>
       <tr>
@@ -37,6 +38,7 @@ export const AthleteTable = ({ athletes, currentAthlete, setCurrentAthlete }: At
                 </button>
               }
               <button
+                onClick={() => deleteAthlete(athlete)}
                 className="button muted-button"
               >
                 Delete

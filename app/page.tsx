@@ -27,6 +27,10 @@ export default function HomePage() {
     setAthletes([...athletes, newAthlete]);
   }
 
+  const deleteAthlete = (athlete: Athlete) => {
+    setAthletes(athletes.filter(a => a.id !== athlete.id));
+  }
+
   return (
     <main className="container">
       <img
@@ -60,7 +64,8 @@ export default function HomePage() {
               athletes={athletes}
               setAthletes={setAthletes}
               currentAthlete={currentAthlete}
-              setCurrentAthlete={setCurrentAthlete} />
+              setCurrentAthlete={setCurrentAthlete}
+              deleteAthlete={deleteAthlete} />
           </div>
         </div>
         <span>Total Athletes: {athletes.length}</span>
